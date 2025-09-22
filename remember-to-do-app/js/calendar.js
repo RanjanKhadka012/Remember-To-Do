@@ -12,15 +12,14 @@ class RememberToDoCalendar {
     
     init() {
         this.setupEventListeners();
-        this.renderCurrentView();
+        // Ensure month view is active by default
+        this.switchView('month');
         this.renderMiniCalendar();
-        this.updateCurrentMonthDisplay();
     }
     
     setupEventListeners() {
-        // Navigation buttons
-        document.getElementById('prevBtn').addEventListener('click', () => this.navigateMonth(-1));
-        document.getElementById('nextBtn').addEventListener('click', () => this.navigateMonth(1));
+        // Navigation buttons - will be dynamically updated based on view
+        this.updateNavigationForView(this.currentView);
         document.getElementById('todayBtn').addEventListener('click', () => this.goToToday());
         
         // Mini calendar navigation

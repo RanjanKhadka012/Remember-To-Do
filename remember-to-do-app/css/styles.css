@@ -878,7 +878,7 @@ body {
 }
 
 .month-view {
-    display: block;
+    display: none;
 }
 
 .month-view.active {
